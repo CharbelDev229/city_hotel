@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Déclaration des polices personnalisées */
+@font-face {
+  font-family: 'Back Wild';
+  src: url('/fonts/BackWild-Regular.woff2') format('woff2'),
+    url('/fonts/BackWild-Regular.woff') format('woff'),
+    url('/fonts/BackWild-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Petrov Sans';
+  src: url('/fonts/PetrovSans-Regular.woff2') format('woff2'),
+    url('/fonts/PetrovSans-Regular.woff') format('woff'),
+    url('/fonts/PetrovSans-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Petrov Sans';
+  src: url('/fonts/PetrovSans-Bold.woff2') format('woff2'),
+    url('/fonts/PetrovSans-Bold.woff') format('woff'),
+    url('/fonts/PetrovSans-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  body {
+    @apply font-tertiary antialiased;
+  }
+
+  h1,
+  .font-primary {
+    font-family: 'Back Wild', cursive;
+  }
+
+  h2,
+  h3,
+  .font-secondary {
+    font-family: 'Petrov Sans', sans-serif;
+  }
+
+  p,
+  span,
+  div,
+  .font-tertiary {
+    font-family: 'Montserrat', sans-serif;
+  }
+}
+
+@layer utilities {
+  .transition-smooth {
+    transition: all 0.3s ease-in-out;
+  }
+
+  /* Effet de texture de tissu */
+  .fabric-texture {
+    background-color: #020e23;
+    background-image:
+      repeating-linear-gradient(45deg,
+        transparent,
+        transparent 2px,
+        rgba(255, 255, 255, 0.03) 2px,
+        rgba(255, 255, 255, 0.03) 4px),
+      repeating-linear-gradient(-45deg,
+        transparent,
+        transparent 2px,
+        rgba(255, 255, 255, 0.03) 2px,
+        rgba(255, 255, 255, 0.03) 4px);
+    position: relative;
+  }
+
+  .fabric-texture::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.05) 1px, transparent 0);
+    background-size: 20px 20px;
+    opacity: 0.5;
+    pointer-events: none;
+  }
+}
