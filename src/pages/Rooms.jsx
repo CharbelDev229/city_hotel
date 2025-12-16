@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import PageHeader from '../components/PageHeader'
+import RoomCarousel from '../components/RoomCarousel'
 
 function Rooms() {
   const rooms = [
@@ -7,7 +8,11 @@ function Rooms() {
       id: 1,
       name: 'Chambre Standard',
       price: '15,000 FCFA',
-      image: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800',
+      images: [
+        'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800',
+        'https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=800',
+        'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?w=800'
+      ],
       description: 'Chambre confortable et moderne, idéale pour un séjour agréable. Parfaite pour les voyageurs individuels ou les couples.',
       amenities: ['Wi-Fi gratuit', 'Climatisation', 'TV LED', 'Douche privée', 'Sèche-cheveux', 'Bureau'],
       size: '20 m²',
@@ -16,7 +21,11 @@ function Rooms() {
       id: 2,
       name: 'Chambre Deluxe',
       price: '25,000 FCFA',
-      image: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800',
+      images: [
+        'https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800',
+        'https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=800',
+        'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800'
+      ],
       description: 'Chambre spacieuse avec vue panoramique, équipements premium et espace de détente. Parfaite pour un séjour de luxe.',
       amenities: ['Wi-Fi gratuit', 'Climatisation', 'TV LED 32"', 'Douche privée', 'Minibar', 'Salle de bain complète', 'Balcon'],
       size: '30 m²',
@@ -25,7 +34,11 @@ function Rooms() {
       id: 3,
       name: 'Suite VIP',
       price: '45,000 FCFA',
-      image: 'https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=800',
+      images: [
+        'https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=800',
+        'https://images.unsplash.com/photo-1591088398332-8a7791972843?w=800',
+        'https://images.unsplash.com/photo-1631049552057-403cdb8f0658?w=800'
+      ],
       description: 'Suite luxueuse avec salon privé, chambre séparée et toutes les commodités haut de gamme. L\'expérience ultime du confort.',
       amenities: ['Wi-Fi gratuit', 'Climatisation', 'TV LED 55"', 'Salon privé', 'Minibar', 'Salle de bain avec baignoire', 'Balcon privé', 'Service en chambre'],
       size: '50 m²',
@@ -34,7 +47,11 @@ function Rooms() {
       id: 4,
       name: 'Chambre Familiale',
       price: '35,000 FCFA',
-      image: 'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=800',
+      images: [
+        'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=800',
+        'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800',
+        'https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=800'
+      ],
       description: 'Chambre spacieuse avec lits supplémentaires, idéale pour les familles. Confort et espace pour tous.',
       amenities: ['Wi-Fi gratuit', 'Climatisation', 'TV LED', '2 lits doubles', 'Douche privée', 'Espace de jeu', 'Réfrigérateur'],
       size: '35 m²',
@@ -57,12 +74,8 @@ function Rooms() {
               key={room.id}
               className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-smooth"
             >
-              <div className="h-96 lg:h-full overflow-hidden">
-                <img
-                  src={room.image}
-                  alt={room.name}
-                  className="w-full h-full object-cover hover:scale-110 transition-smooth duration-500"
-                />
+              <div className="h-[400px] lg:h-[500px] overflow-hidden relative">
+                <RoomCarousel images={room.images} name={room.name} />
               </div>
               <div className="p-8">
                 <div className="flex items-center justify-between mb-4">
@@ -133,5 +146,3 @@ function Rooms() {
 }
 
 export default Rooms
-
-
