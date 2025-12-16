@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import PageHeader from '../components/PageHeader'
+import whatsappLogo from '../assets/social_15707820.png'
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -51,7 +52,7 @@ function Contact() {
           <motion.h1
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 font-primary tracking-wide"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 font-secondary tracking-wide"
           >
             Contactez-nous
           </motion.h1>
@@ -111,7 +112,8 @@ function Contact() {
                   <div>
                     <h4 className="font-bold text-lg">Téléphone</h4>
                     <a href={`tel:${contactInfo.phone}`} className="text-gray-400 text-sm hover:text-white transition-colors block">{contactInfo.phone}</a>
-                    <a href={`https://wa.me/${contactInfo.whatsapp}`} className="text-green-400 text-xs hover:text-green-300 transition-colors mt-1 inline-flex items-center gap-1">
+                    <a href={`https://wa.me/${contactInfo.whatsapp}`} className="text-green-400 text-xs hover:text-green-300 transition-colors mt-2 inline-flex items-center gap-2">
+                      <img src={whatsappLogo} alt="WhatsApp" className="w-5 h-5" />
                       Sur WhatsApp →
                     </a>
                   </div>
